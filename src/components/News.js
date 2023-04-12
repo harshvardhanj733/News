@@ -20,7 +20,6 @@ export class News extends Component {
         
         let data = await fetch(url);
         let parsedData = await data.json();
-        // console.log(parsedData);
         
         this.setState({articles: parsedData.articles, page: this.state.page-1, loader:false})
     }
@@ -30,7 +29,6 @@ export class News extends Component {
         
         let data = await fetch(url);
         let parsedData = await data.json();
-        // console.log(parsedData);
         
         this.setState({articles: parsedData.articles, page: this.state.page+1, loader:false})
     }
@@ -41,23 +39,19 @@ export class News extends Component {
         
         let data = await fetch(url);
         let parsedData = await data.json();
-        // console.log(parsedData);
         
         this.setState({articles: parsedData.articles, totalResults: parsedData.totalResults, loader:false})
-        // console.log(this.state.totalResults);
-        // console.log(Math.ceil(this.state.totalResults/12))
     }
     
     
     render() {
-        // let {query} = this.props;
         return (
             <div className='container'>
-                <h2>Top Headlines</h2>
+                <h2>{this.props.headline} Headlines</h2>
                 {this.state.loader && <Spinner/>}
                 <div className="d-flex justify-content-around my-2">
-                <button type="button" class="btn btn-danger" onClick={this.handlePrev} disabled={this.state.page<=1}>Previous</button>
-                <button type="button" class="btn btn-danger" onClick={this.handleNext} disabled={this.state.page >= Math.ceil((this.state.totalResults)/12)}>Next</button>
+                <button type="button" className="btn btn-danger" onClick={this.handlePrev} disabled={this.state.page<=1}>Previous</button>
+                <button type="button" className="btn btn-danger" onClick={this.handleNext} disabled={this.state.page >= Math.ceil((this.state.totalResults)/12)}>Next</button>
                 </div>
                 <div className="row my-4">
                     {!this.state.loader && this.state.articles.map((element)=>{

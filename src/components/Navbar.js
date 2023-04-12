@@ -6,18 +6,13 @@ import { Link} from "react-router-dom"
 
 export class Navbar extends Component {
     render() {
-        // let search = ()=>{
-        //     let inp = document.getElementById("inp");
-        //     return inp.value;
-        // }
-        // let {serc} = this.props;
+        const {newsSearch} = this.props;
         return (
             <div id='navbar'>
-                {/* <BrowserRouter> */}
                 <nav className="navbar navbar-expand-lg bg-light">
                     <div className="container-fluid">
                         <Link className="navbar-brand" to="/">
-                            News Monkey
+                            News App
                         </Link>
                         <button
                             className="navbar-toggler"
@@ -37,55 +32,39 @@ export class Navbar extends Component {
                                         Home
                                     </Link>
                                 </li>
-                                {/* <li className="nav-item">
-                                    <Link className="nav-link" to="/about">
-                                        About
-                                    </Link>
-                                </li> */}
-                                {/* <li className="nav-item">
-                                    <Link className="nav-link" to="/business">
-                                        Business
-                                    </Link>
-                                </li> */}
-                                {/* <li className="nav-item">
-                                    <a className="nav-link" href="/entertainment">
-                                        Entertainment
-                                    </a>
-                                </li> */}
-                                {/* <li className="nav-item">
-                                    <a className="nav-link" href="/general">
-                                        General
-                                    </a>
-                                </li> */}
-                                {/* <li className="nav-item">
-                                    <a className="nav-link" href="/science">
-                                        Science
-                                    </a>
-                                </li> */}
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/sports">
                                         Sports
                                     </Link>
                                 </li>
-                                {/* <li className="nav-item">
+                                <li className="nav-item">
                                     <a className="nav-link" href="/health">
                                         Health
                                     </a>
-                                </li> */}
-                                {/* <li className="nav-item">
+                                </li>
+                                <li className="nav-item">
                                     <a className="nav-link" href="/technology">
                                         Technology
                                     </a>
-                                </li> */}
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/business">
+                                        Business
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="/entertainment">
+                                        Entertainment
+                                    </a>
+                                </li>
                             </ul>
                             <form className="d-flex" role="search">
-                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id={this.props.id}/>
-                                <button className="btn btn-outline-success" type="submit" onClick={this.props.newsSearch}>Search</button>
+                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="inp"/>
+                                <button className="btn btn-outline-success" type="submit" onClick={newsSearch}>Search</button>
                             </form>
                         </div>
                     </div>
                 </nav>
-                {/* </BrowserRouter> */}
             </div>
         )
     }
